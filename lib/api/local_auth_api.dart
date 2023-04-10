@@ -16,6 +16,16 @@ class LocalAuthApi {
     try {
       return await _auth.canCheckBiometrics;
     } on PlatformException catch (e) {
+      Fluttertoast.showToast(
+          msg: 'Biometric is not available in this device',
+          //toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 5,
+          //backgroundColor: const Color.fromRGBO(232, 141, 20, 1),
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 16,
+        );
       return false;
     }
   }
@@ -32,6 +42,16 @@ class LocalAuthApi {
     try {
       return await _auth.isDeviceSupported();
     } on PlatformException catch (e) {
+      Fluttertoast.showToast(
+          msg: 'Biometric is not supported by this device',
+          //toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 5,
+          //backgroundColor: const Color.fromRGBO(232, 141, 20, 1),
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 16,
+        );
       return false;
     }
   }
